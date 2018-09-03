@@ -76,15 +76,15 @@ class ApiGenerator implements AvatarGeneratorInterface
 	}
 
 	public function gravatar() {
-		return 'https://ui-avatars.com/api'
-		       . '/' . $this->options['name']
-		       . '/' . $this->options['size']
-		       . '/' . $this->options['background']
-		       . '/' . $this->options['color']
-		       . '/' . $this->options['length']
-		       . '/' . $this->options['font-size']
-		       . '/' . $this->options['rounded']
-		       . '/' . $this->options['uppercase'];
+		return urlencode( 'https://ui-avatars.com/api'
+		                  . '/' . $this->options['name']
+		                  . '/' . $this->options['size']
+		                  . '/' . $this->options['background']
+		                  . '/' . $this->options['color']
+		                  . '/' . $this->options['length']
+		                  . '/' . $this->options['font-size']
+		                  . '/' . $this->options['rounded']
+		                  . '/' . $this->options['uppercase'] );
 	}
 
 	public function initials() {

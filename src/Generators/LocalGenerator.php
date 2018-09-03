@@ -83,7 +83,11 @@ class LocalGenerator implements AvatarGeneratorInterface
 		return $this;
 	}
 
-	public function base64( $format = 'png', $quality = 100 ) {
+	public function base64() {
+		return $this->stream( 'base64', 100 );
+	}
+
+	public function stream( $format = 'png', $quality = 100 ) {
 		return $this->image()->stream( $format, $quality );
 	}
 

@@ -21,39 +21,14 @@ The Service Provider is automatically registered.
 
 ## Setup
 
+To setup the config file, you publish it like so:
+
 ```bash
 php artisan vendor:publish --provider="Rackbeat\UIAvatars\UIAvatarsServiceProvider"
 ```
 
 ## Usage
-
-### Class
-
-* `Rackbeat\Rules\TinyInteger`
-* `Rackbeat\Rules\SmallInteger`
-* `Rackbeat\Rules\Integer`
-* `Rackbeat\Rules\BigInteger`
-
-```php
-'number' => [
-    new Rackbeat\Rules\BigInteger($unsigned = true),
-],
-```
-
-### Helper
-
-The helpers are prefixed with "real_" to prevent overlapping. 
-It can take an optional parameter to determine if its unsigned. Defaults to `false`.
-
-* `real_tiny_int`
-* `real_small_int`
-* `real_int`
-* `real_big_int`
-
-```php
-'id'        => ['real_tiny_int:1'], // unsigned
-'number'    => ['real_tiny_int:0'], // signed
-```
+Coming soon
 
 ## Requirements
 * PHP >= 7.1

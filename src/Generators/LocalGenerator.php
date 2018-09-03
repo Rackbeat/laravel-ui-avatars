@@ -87,6 +87,10 @@ class LocalGenerator implements AvatarGeneratorInterface
 		return $this->image()->stream( $format, $quality );
 	}
 
+	public function gravatar() {
+		return $this->base64();
+	}
+
 	public function image() {
 		return $this->service->generate();
 	}

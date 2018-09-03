@@ -66,6 +66,11 @@ interface AvatarGeneratorInterface
 	public function base64();
 
 	/**
+	 * @return string
+	 */
+	public function gravatar();
+
+	/**
 	 * @return Image
 	 */
 	public function image();

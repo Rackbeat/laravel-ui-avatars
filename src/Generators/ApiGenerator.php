@@ -50,13 +50,13 @@ class ApiGenerator implements AvatarGeneratorInterface
 	}
 
 	public function fontColor( $fontColor ) {
-		$this->options['color'] = str_replace('#', '', $fontColor);
+		$this->options['color'] = str_replace( '#', '', $fontColor );
 
 		return $this;
 	}
 
 	public function backgroundColor( $backgroundColor ) {
-		$this->options['background'] = str_replace('#', '', $backgroundColor);
+		$this->options['background'] = str_replace( '#', '', $backgroundColor );
 
 		return $this;
 	}
@@ -73,6 +73,18 @@ class ApiGenerator implements AvatarGeneratorInterface
 
 	public function image() {
 		return 'https://ui-avatars.com/api/?' . http_build_query( $this->options );
+	}
+
+	public function gravatar() {
+		return 'https://ui-avatars.com/api'
+		       . '/' . $this->options['name']
+		       . '/' . $this->options['size']
+		       . '/' . $this->options['background']
+		       . '/' . $this->options['color']
+		       . '/' . $this->options['length']
+		       . '/' . $this->options['font-size']
+		       . '/' . $this->options['rounded']
+		       . '/' . $this->options['uppercase'];
 	}
 
 	public function initials() {

@@ -42,4 +42,8 @@ trait HasAvatar
 	public function getAvatarBase64($size = null) {
 		return $this->getAvatarGenerator()->imageSize($size)->base64();
 	}
+
+	public function getAvatarForGravatar($size = null) {
+		return $this->getAvatarGenerator()->imageSize($size)->gravatar();
+	}
 }

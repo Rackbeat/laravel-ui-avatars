@@ -68,7 +68,7 @@ interface AvatarGeneratorInterface
 	/**
 	 * @return string
 	 */
-	public function gravatar();
+	public function urlfriendly();
 
 	/**
 	 * @return Image

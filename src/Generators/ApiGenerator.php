@@ -75,7 +75,7 @@ class ApiGenerator implements AvatarGeneratorInterface
 		return 'https://ui-avatars.com/api/?' . http_build_query( $this->options );
 	}
 
-	public function gravatar() {
+	public function urlfriendly() {
 		return urlencode( 'https://ui-avatars.com/api'
 		                  . '/' . urlencode( $this->options['name'] )
 		                  . '/' . $this->options['size']

@@ -60,7 +60,7 @@ trait HasAvatar
 	}
 
 	/**
-	 * Returns a string valid to use as a Gravatar fallback.
+	 * Returns a string valid to use as a Gravatar (or similar) fallback.
 	 *
 	 * @param null|int $size
 	 *

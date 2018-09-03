@@ -45,8 +45,8 @@ trait HasAvatar
 	 *
 	 * @return Image
 	 */
-	public function getAvatarImage($size = null) {
-		return $this->getAvatarGenerator()->imageSize($size)->image();
+	public function getAvatarImage( $size = null ) {
+		return $this->getAvatarGenerator()->imageSize( $size )->image();
 	}
 
 
@@ -55,8 +55,8 @@ trait HasAvatar
 	 *
 	 * @return string
 	 */
-	public function getAvatarBase64($size = null) {
-		return $this->getAvatarGenerator()->imageSize($size)->base64();
+	public function getAvatarBase64( $size = null ) {
+		return $this->getAvatarGenerator()->imageSize( $size )->base64();
 	}
 
 	/**
@@ -66,7 +66,19 @@ trait HasAvatar
 	 *
 	 * @return string
 	 */
-	public function getAvatarForGravatar($size = null) {
-		return $this->getAvatarGenerator()->imageSize($size)->gravatar();
+	public function getAvatarForGravatar( $size = null ) {
+		return $this->getAvatarGenerator()->imageSize( $size )->gravatar();
+	}
+
+	/**
+	 * Returns a gravatar url.
+	 *
+	 * @param string email
+	 * @param null|int $size
+	 *
+	 * @return string
+	 */
+	public function getGravatar( $email, $size = null ) {
+		return 'https://www.gravatar.com/avatar/' . md5( strtolower( $email ) ) . '?s=' . $size . '&default=' . $this->getAvatarForGravatar( $size );
 	}
 }

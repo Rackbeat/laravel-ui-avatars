@@ -62,6 +62,8 @@ trait HasAvatar
 	/**
 	 * Returns a string valid to use as a Gravatar (or similar) fallback.
 	 *
+	 * ONLY USEFUL FOR 'api' provider.
+	 *
 	 * @param null|int $size
 	 *
 	 * @return string
@@ -72,6 +74,8 @@ trait HasAvatar
 
 	/**
 	 * Returns a gravatar url.
+	 *
+	 * ONLY WORKS FOR 'api' provider.
 	 *
 	 * @param string email
 	 * @param null|int $size

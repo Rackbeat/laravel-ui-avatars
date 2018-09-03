@@ -38,6 +38,11 @@ class ApiGenerator implements AvatarGeneratorInterface
 	}
 
 	public function imageSize( $imageSize ) {
+		// Option to specify custom, or default to config.
+		if ( $imageSize === null ) {
+			return $this;
+		}
+
 		$this->options['size'] = $imageSize;
 
 		return $this;

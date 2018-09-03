@@ -21,6 +21,8 @@ class AvatarGeneratorFactory
 	 * @return AvatarGeneratorInterface
 	 */
 	public static function select( $provider = 'local' ) {
-		return new ( config( "ui-avatars.providers.{$provider}" ) );
+		$providerClass = config( "ui-avatars.providers.{$provider}" );
+
+		return new $providerClass;
 	}
 }

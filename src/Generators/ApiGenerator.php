@@ -77,7 +77,7 @@ class ApiGenerator implements AvatarGeneratorInterface
 
 	public function gravatar() {
 		return urlencode( 'https://ui-avatars.com/api'
-		                  . '/' . $this->options['name']
+		                  . '/' . urlencode( $this->options['name'] )
 		                  . '/' . $this->options['size']
 		                  . '/' . $this->options['background']
 		                  . '/' . $this->options['color']

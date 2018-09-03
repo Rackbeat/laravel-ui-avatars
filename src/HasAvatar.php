@@ -78,7 +78,7 @@ trait HasAvatar
 	 *
 	 * @return string
 	 */
-	public function getGravatar( $email, $size = null ) {
+	public function getGravatarAvatar( $email, $size = null ) {
 		return 'https://www.gravatar.com/avatar/' . md5( strtolower( $email ) ) . '?s=' . $size . '&default=' . $this->getAvatarForGravatar( $size );
 	}
 }

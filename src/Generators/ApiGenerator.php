@@ -93,7 +93,7 @@ class ApiGenerator implements AvatarGeneratorInterface
 	}
 
 	public function initials() {
-		return ( new InitialAvatar )->name( $this->name )->getInitials();
+		return ( new InitialAvatar )->name( $this->options['name'] )->getInitials();
 	}
 
 }

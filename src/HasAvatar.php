@@ -34,10 +34,12 @@ trait HasAvatar
 	}
 
 	/**
+	 * @param null|int $length
+	 *
 	 * @return string
 	 */
-	public function getInitials() {
-		return $this->getAvatarGenerator()->initials();
+	public function getInitials( $length = null ) {
+		return $this->getAvatarGenerator()->initials( $length );
 	}
 
 	/**

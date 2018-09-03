@@ -99,7 +99,11 @@ class LocalGenerator implements AvatarGeneratorInterface
 		return $this->service->generate();
 	}
 
-	public function initials() {
+	public function initials( $length = null ) {
+		if ( $length !== null ) {
+			$this->length( $length );
+		}
+
 		return $this->service->getInitials();
 	}
 }

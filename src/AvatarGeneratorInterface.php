@@ -76,7 +76,9 @@ interface AvatarGeneratorInterface
 	public function image();
 
 	/**
+	 * @param null|int $length
+	 *
 	 * @return string
 	 */
-	public function initials();
+	public function initials( $length );
 }

@@ -92,8 +92,8 @@ class ApiGenerator implements AvatarGeneratorInterface
 		                  . '/' . $this->options['uppercase'] );
 	}
 
-	public function initials() {
-		return ( new InitialAvatar )->name( $this->options['name'] )->getInitials();
+	public function initials( $length = null ) {
+		return ( new InitialAvatar )->name( $this->options['name'] )->length( $length ?: $this->options['length'] )->getInitials();
 	}
 
 }

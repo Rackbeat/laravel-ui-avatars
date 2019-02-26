@@ -21,6 +21,7 @@ class LocalGenerator implements AvatarGeneratorInterface
 		$this->uppercase( (bool) config( 'ui-avatars.uppercase' ) );
 		$this->backgroundColor( config( 'ui-avatars.background_color' ) );
 		$this->fontColor( config( 'ui-avatars.font_color' ) );
+		$this->bold( config( 'ui-avatars.font_bold' ) );
 	}
 
 	public function name( $name ) {
@@ -79,6 +80,14 @@ class LocalGenerator implements AvatarGeneratorInterface
 
 	public function uppercase( $uppercase ) {
 		$this->service->keepCase( ! $uppercase );
+
+		return $this;
+	}
+
+	public function bold( $bold ) {
+		if ( $bold ) {
+			$this->service->preferBold();
+		}
 
 		return $this;
 	}

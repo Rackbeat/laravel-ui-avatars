@@ -17,6 +17,7 @@ class ApiGenerator implements AvatarGeneratorInterface
 		$this->uppercase( (bool) config( 'ui-avatars.uppercase' ) );
 		$this->backgroundColor( config( 'ui-avatars.background_color' ) );
 		$this->fontColor( config( 'ui-avatars.font_color' ) );
+		$this->bold( config( 'ui-avatars.font_bold' ) );
 	}
 
 	public function name( $name ) {
@@ -72,6 +73,12 @@ class ApiGenerator implements AvatarGeneratorInterface
 		return $this;
 	}
 
+	public function bold( $bold ) {
+		$this->options['bold'] = $bold;
+
+		return $this;
+	}
+
 	public function base64() {
 		return $this->image();
 	}
@@ -89,7 +96,8 @@ class ApiGenerator implements AvatarGeneratorInterface
 		                  . '/' . $this->options['length']
 		                  . '/' . $this->options['font-size']
 		                  . '/' . $this->options['rounded']
-		                  . '/' . $this->options['uppercase'] );
+		                  . '/' . $this->options['uppercase']
+		                  . '/' . $this->options['bold'] ?? false );
 	}
 
 	public function initials( $length = null ) {

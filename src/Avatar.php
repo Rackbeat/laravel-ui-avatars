@@ -2,6 +2,8 @@
 
 namespace Rackbeat\UIAvatars;
 
+use SVG\SVG;
+
 class Avatar
 {
 	/**
@@ -20,10 +22,19 @@ class Avatar
 	/**
 	 * @param string $name
 	 *
-	 * @return \Intervention\Image\Image
+	 * @return \Intervention\Image\Image|string
 	 */
 	public static function image( $name = '' ) {
 		return static::make()->name( $name )->image();
+	}
+
+	/**
+	 * @param string $name
+	 *
+	 * @return SVG|string
+	 */
+	public static function svg( $name = '' ) {
+		return static::make()->name( $name )->svg();
 	}
 
 	/**

@@ -108,6 +108,10 @@ class LocalGenerator implements AvatarGeneratorInterface
 		return $this->service->generate();
 	}
 
+	public function svg() {
+		return $this->service->generateSvg();
+	}
+
 	public function initials( $length = null ) {
 		if ( $length !== null ) {
 			$this->length( $length );

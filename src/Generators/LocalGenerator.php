@@ -21,7 +21,7 @@ class LocalGenerator implements AvatarGeneratorInterface
 		$this->uppercase( (bool) config( 'ui-avatars.uppercase' ) );
 		$this->backgroundColor( config( 'ui-avatars.background_color' ) );
 		$this->fontColor( config( 'ui-avatars.font_color' ) );
-		$this->bold( (bool)  config( 'ui-avatars.font_bold' ) );
+		$this->bold( (bool) config( 'ui-avatars.font_bold' ) );
 	}
 
 	public function name( $name ) {
@@ -109,7 +109,7 @@ class LocalGenerator implements AvatarGeneratorInterface
 	}
 
 	public function svg() {
-		return $this->service->generateSvg();
+		return $this->service->generateSvg()->toXMLString();
 	}
 
 	public function initials( $length = null ) {

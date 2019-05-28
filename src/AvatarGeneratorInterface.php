@@ -1,7 +1,6 @@
 <?php namespace Rackbeat\UIAvatars;
 
 use Intervention\Image\Image;
-use SVG\SVG;
 
 interface AvatarGeneratorInterface
 {
@@ -77,7 +76,7 @@ interface AvatarGeneratorInterface
 	public function image();
 
 	/**
-	 * @return SVG|string
+	 * @return string
 	 */
 	public function svg();
 

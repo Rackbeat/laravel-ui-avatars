@@ -51,6 +51,15 @@ trait HasAvatar
 		return $this->getAvatarGenerator()->imageSize( $size )->image();
 	}
 
+	/**
+	 * @param null|int $size
+	 *
+	 * @return string
+	 */
+	public function getAvatarSvg( $size = null ) {
+		return $this->getAvatarGenerator()->imageSize( $size )->svg();
+	}
+
 
 	/**
 	 * @param null|int $size

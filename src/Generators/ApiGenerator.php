@@ -20,6 +20,12 @@ class ApiGenerator implements AvatarGeneratorInterface
 		$this->bold( (bool) config( 'ui-avatars.font_bold' ) );
 	}
 
+	public function region( $region ) {
+		$this->options['region'] = $region;
+
+		return $this;
+	}
+
 	public function name( $name ) {
 		$this->options['name'] = $name;
 
@@ -84,15 +90,15 @@ class ApiGenerator implements AvatarGeneratorInterface
 	}
 
 	public function image() {
-		return 'https://ui-avatars.com/api/?' . http_build_query( $this->options );
+		return $this->getHost() . '/api/?' . http_build_query( $this->options );
 	}
 
 	public function svg() {
-		return 'https://ui-avatars.com/svg/?' . http_build_query( $this->options );
+		return $this->getHost() . '/svg/?' . http_build_query( $this->options );
 	}
 
 	public function urlfriendly() {
-		return urlencode( 'https://ui-avatars.com/api'
+		return urlencode( $this->getHost() . '/api'
 		                  . '/' . urlencode( $this->options['name'] )
 		                  . '/' . $this->options['size']
 		                  . '/' . $this->options['background']
@@ -101,11 +107,18 @@ class ApiGenerator implements AvatarGeneratorInterface
 		                  . '/' . $this->options['font-size']
 		                  . '/' . $this->options['rounded']
 		                  . '/' . $this->options['uppercase']
-		                  . '/' . $this->options['bold'] ?? false );
+		                  . '/' . ( $this->options['bold'] ?? false ) );
 	}
 
 	public function initials( $length = null ) {
 		return ( new InitialAvatar )->name( $this->options['name'] )->length( $length ?: $this->options['length'] )->getInitials();
 	}
 
+	protected function getHost() {
+		if ( empty( $this->options['region'] ) ) {
+			return 'https://ui-avatars.com';
+		}
+
+		return sprintf( 'https://%s.ui-avatars.com', $this->options['region'] );
+	}
 }

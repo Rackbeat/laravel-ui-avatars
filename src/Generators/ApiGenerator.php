@@ -18,6 +18,7 @@ class ApiGenerator implements AvatarGeneratorInterface
 		$this->backgroundColor( config( 'ui-avatars.background_color' ) );
 		$this->fontColor( config( 'ui-avatars.font_color' ) );
 		$this->bold( (bool) config( 'ui-avatars.font_bold' ) );
+		$this->options['region'] = config('ui-avatars.default_region');
 	}
 
 	public function region( $region ) {

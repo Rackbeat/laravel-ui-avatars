@@ -36,7 +36,7 @@ You can edit the file in `config/ui-avatars.php`.
 ```php
 // ...
 class User extends Authenticatable {
-  use HasAvatar;
+  use \Rackbeat\UIAvatars\HasAvatar;
   // ...
 }
 ```

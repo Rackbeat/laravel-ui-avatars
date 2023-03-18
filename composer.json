@@ -1,52 +1,52 @@
 {
-	"name": "rackbeat/laravel-ui-avatars",
-	"description": "Official Laravel wrapper around ui-avatars.com and LasseRafn/php-initial-avatar-generator",
-	"keywords": [
-		"laravel",
-		"ui-avatars",
-		"php",
-		"avatars",
-		"initials"
-	],
-	"type": "library",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Lasse Rafn",
-			"email": "lasserafn@gmail.com"
-		},
-		{
-			"name": "Rackbeat",
-			"email": "open-source@rackbeat.com"
-		}
-	],
-	"require": {
-		"php": ">=7.1",
-		"lasserafn/php-initial-avatar-generator": "^4.0",
-		"illuminate/support": "^7.0|^8.0|^9.0"
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^7.0",
-		"satooshi/php-coveralls": "^1.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"Rackbeat\\UIAvatars\\": "src/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"UIAvatars\\Tests\\": "tests/"
-		}
-	},
-	"config": {
-		"sort-packages": true
-	},
-	"extra": {
-		"laravel": {
-			"providers": [
-				"Rackbeat\\UIAvatars\\UIAvatarsServiceProvider"
-			]
-		}
-	}
+    "name": "rackbeat/laravel-ui-avatars",
+    "description": "Official Laravel wrapper around ui-avatars.com and LasseRafn/php-initial-avatar-generator",
+    "keywords": [
+        "laravel",
+        "ui-avatars",
+        "php",
+        "avatars",
+        "initials"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lasse Rafn",
+            "email": "lasserafn@gmail.com"
+        },
+        {
+            "name": "Rackbeat",
+            "email": "open-source@rackbeat.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "lasserafn/php-initial-avatar-generator": "^4.0",
+        "illuminate/support": "^7.0|^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0|^9.5.10",
+        "satooshi/php-coveralls": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rackbeat\\UIAvatars\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UIAvatars\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rackbeat\\UIAvatars\\UIAvatarsServiceProvider"
+            ]
+        }
+    }
 }

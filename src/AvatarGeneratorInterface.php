@@ -1,89 +1,34 @@
-<?php namespace Rackbeat\UIAvatars;
+<?php
+
+namespace Rackbeat\UIAvatars;
 
 use Intervention\Image\Image;
 
 interface AvatarGeneratorInterface
 {
-	/**
-	 * @param $name
-	 *
-	 * @return self
-	 */
-	public function name( $name );
+	public function name(string $name): self;
 
-	/**
-	 * @param $length
-	 *
-	 * @return self
-	 */
-	public function length( $length );
+	public function length(int $length): self;
 
-	/**
-	 * @param $fontSize
-	 *
-	 * @return self
-	 */
-	public function fontSize( $fontSize );
+	public function fontSize(int $fontSize): self;
 
-	/**
-	 * @param $imagseSize
-	 *
-	 * @return self
-	 */
-	public function imageSize( $imagseSize );
+	public function imageSize(?int $imageSize): self;
 
-	/**
-	 * @param $rounded
-	 *
-	 * @return self
-	 */
-	public function rounded( $rounded );
+	public function rounded(bool $rounded): self;
 
-	/**
-	 * @param $fontColor
-	 *
-	 * @return self
-	 */
-	public function fontColor( $fontColor );
+	public function fontColor(string $fontColor): self;
 
-	/**
-	 * @param $backgroundColor
-	 *
-	 * @return self
-	 */
-	public function backgroundColor( $backgroundColor );
+	public function backgroundColor(string $backgroundColor): self;
 
-	/**
-	 * @param $uppercase
-	 *
-	 * @return self
-	 */
-	public function uppercase( $uppercase );
+	public function uppercase(bool $uppercase): self;
 
-	/**
-	 * @return string
-	 */
-	public function base64();
+	public function base64(): string;
 
-	/**
-	 * @return string
-	 */
-	public function urlfriendly();
+	public function urlfriendly(): string;
 
-	/**
-	 * @return Image|string
-	 */
-	public function image();
+	public function image(): Image|string;
 
-	/**
-	 * @return string
-	 */
-	public function svg();
+	public function svg(): string;
 
-	/**
-	 * @param null|int $length
-	 *
-	 * @return string
-	 */
-	public function initials( $length );
+	public function initials(?int $length = null): string;
 }

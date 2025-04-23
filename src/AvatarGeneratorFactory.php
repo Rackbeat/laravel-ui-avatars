@@ -4,25 +4,17 @@ namespace Rackbeat\UIAvatars;
 
 class AvatarGeneratorFactory
 {
-	/**
-	 * @param string $name
-	 *
-	 * @return AvatarGeneratorInterface
-	 */
-	public static function make( $name = '' ) {
-		$providerKey = config( 'ui-avatars.provider' );
+	public static function make(string $name = ''): AvatarGeneratorInterface
+	{
+		$providerKey = config('ui-avatars.provider');
 
-		return static::select( $providerKey )->name( $name );
+		return static::select($providerKey)->name($name);
 	}
 
-	/**
-	 * @param string $provider
-	 *
-	 * @return AvatarGeneratorInterface
-	 */
-	public static function select( $provider = 'local' ) {
-		$providerClass = config( "ui-avatars.providers.{$provider}" );
+	public static function select(string $provider = 'local'): AvatarGeneratorInterface
+	{
+		$providerClass = config("ui-avatars.providers.{$provider}");
 
-		return new $providerClass;
+		return new $providerClass();
 	}
 }

@@ -8,10 +8,9 @@ trait HasAvatar
 {
 	/**
 	 * Get the name value to generate avatar from.
-	 *
-	 * @return string
 	 */
-	protected function getAvatarName() {
+	protected function getAvatarName(): string
+	{
 		return $this->{$this->getAvatarNameKey()};
 	}
 
@@ -19,81 +18,54 @@ trait HasAvatar
 	 * Get the key on the model to grab the name from.
 	 *
 	 * Defaults to 'name' for App\User model.
-	 *
-	 * @return string
 	 */
-	protected function getAvatarNameKey() {
+	protected function getAvatarNameKey(): string
+	{
 		return 'name';
 	}
 
-	/**
-	 * @return AvatarGeneratorInterface
-	 */
-	public function getAvatarGenerator() {
-		return AvatarGeneratorFactory::make( $this->getAvatarName() );
+	public function getAvatarGenerator(): AvatarGeneratorInterface
+	{
+		return AvatarGeneratorFactory::make($this->getAvatarName());
 	}
 
-	/**
-	 * @param null|int $length
-	 *
-	 * @return string
-	 */
-	public function getInitials( $length = null ) {
-		return $this->getAvatarGenerator()->initials( $length );
+	public function getInitials(?int $length = null): string
+	{
+		return $this->getAvatarGenerator()->initials($length);
 	}
 
-	/**
-	 * @param null|int $size
-	 *
-	 * @return Image
-	 */
-	public function getAvatarImage( $size = null ) {
-		return $this->getAvatarGenerator()->imageSize( $size )->image();
+	public function getAvatarImage(?int $size = null): Image
+	{
+		return $this->getAvatarGenerator()->imageSize($size)->image();
 	}
 
-	/**
-	 * @param null|int $size
-	 *
-	 * @return string
-	 */
-	public function getAvatarSvg( $size = null ) {
-		return $this->getAvatarGenerator()->imageSize( $size )->svg();
+	public function getAvatarSvg(?int $size = null): string
+	{
+		return $this->getAvatarGenerator()->imageSize($size)->svg();
 	}
 
-
-	/**
-	 * @param null|int $size
-	 *
-	 * @return string
-	 */
-	public function getAvatarBase64( $size = null ) {
-		return $this->getAvatarGenerator()->imageSize( $size )->base64();
+	public function getAvatarBase64(?int $size = null): string
+	{
+		return $this->getAvatarGenerator()->imageSize($size)->base64();
 	}
 
 	/**
 	 * Returns a string valid to use as a Gravatar (or similar) fallback.
 	 *
 	 * ONLY USEFUL FOR 'api' provider.
-	 *
-	 * @param null|int $size
-	 *
-	 * @return string
 	 */
-	public function getUrlfriendlyAvatar( $size = null ) {
-		return $this->getAvatarGenerator()->imageSize( $size )->urlfriendly();
+	public function getUrlfriendlyAvatar(?int $size = null): string
+	{
+		return $this->getAvatarGenerator()->imageSize($size)->urlfriendly();
 	}
 
 	/**
-	 * Returns a gravatar url.
+	 * Returns a gravatar URL.
 	 *
 	 * ONLY WORKS FOR 'api' provider.
-	 *
-	 * @param string email
-	 * @param null|int $size
-	 *
-	 * @return string
 	 */
-	public function getGravatar( $email, $size = null ) {
-		return 'https://www.gravatar.com/avatar/' . md5( strtolower( $email ) ) . '?s=' . $size . '&default=' . $this->getUrlfriendlyAvatar( $size );
+	public function getGravatar(string $email, ?int $size = null): string
+	{
+		return 'https://www.gravatar.com/avatar/' . md5(strtolower($email)) . '?s=' . $size . '&default=' . $this->getUrlfriendlyAvatar($size);
 	}
 }

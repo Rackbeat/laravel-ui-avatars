@@ -1,89 +1,74 @@
-<?php namespace Rackbeat\UIAvatars;
+<?php
+
+namespace Rackbeat\UIAvatars;
 
 use Intervention\Image\Image;
 
 interface AvatarGeneratorInterface
 {
-	/**
-	 * @param $name
-	 *
-	 * @return self
-	 */
-	public function name( $name );
+    /**
+     * @return self
+     */
+    public function name($name);
 
-	/**
-	 * @param $length
-	 *
-	 * @return self
-	 */
-	public function length( $length );
+    /**
+     * @return self
+     */
+    public function length($length);
 
-	/**
-	 * @param $fontSize
-	 *
-	 * @return self
-	 */
-	public function fontSize( $fontSize );
+    /**
+     * @return self
+     */
+    public function fontSize($fontSize);
 
-	/**
-	 * @param $imagseSize
-	 *
-	 * @return self
-	 */
-	public function imageSize( $imagseSize );
+    /**
+     * @return self
+     */
+    public function imageSize($imagseSize);
 
-	/**
-	 * @param $rounded
-	 *
-	 * @return self
-	 */
-	public function rounded( $rounded );
+    /**
+     * @return self
+     */
+    public function rounded($rounded);
 
-	/**
-	 * @param $fontColor
-	 *
-	 * @return self
-	 */
-	public function fontColor( $fontColor );
+    /**
+     * @return self
+     */
+    public function fontColor($fontColor);
 
-	/**
-	 * @param $backgroundColor
-	 *
-	 * @return self
-	 */
-	public function backgroundColor( $backgroundColor );
+    /**
+     * @return self
+     */
+    public function backgroundColor($backgroundColor);
 
-	/**
-	 * @param $uppercase
-	 *
-	 * @return self
-	 */
-	public function uppercase( $uppercase );
+    /**
+     * @return self
+     */
+    public function uppercase($uppercase);
 
-	/**
-	 * @return string
-	 */
-	public function base64();
+    /**
+     * @return string
+     */
+    public function base64();
 
-	/**
-	 * @return string
-	 */
-	public function urlfriendly();
+    /**
+     * @return string
+     */
+    public function urlfriendly();
 
-	/**
-	 * @return Image|string
-	 */
-	public function image();
+    /**
+     * @return Image|string
+     */
+    public function image();
 
-	/**
-	 * @return string
-	 */
-	public function svg();
+    /**
+     * @return string
+     */
+    public function svg();
 
-	/**
-	 * @param null|int $length
-	 *
-	 * @return string
-	 */
-	public function initials( $length );
+    /**
+     * @param  int|null  $length
+     * @return string
+     */
+    public function initials($length);
 }

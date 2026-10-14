@@ -7,116 +7,132 @@ use Rackbeat\UIAvatars\AvatarGeneratorInterface;
 
 class LocalGenerator implements AvatarGeneratorInterface
 {
-	/** @var InitialAvatar */
-	protected $service;
+    /** @var InitialAvatar */
+    protected $service;
 
-	public function __construct() {
-		$this->service = new InitialAvatar();
+    public function __construct()
+    {
+        $this->service = new InitialAvatar();
 
-		$this->length( config( 'ui-avatars.length' ) );
-		$this->fontSize( config( 'ui-avatars.font_size' ) );
-		$this->imageSize( config( 'ui-avatars.image_size' ) );
-		$this->rounded( (bool) config( 'ui-avatars.rounded' ) );
-		$this->smooth( (bool) config( 'ui-avatars.smooth_rounding' ) );
-		$this->uppercase( (bool) config( 'ui-avatars.uppercase' ) );
-		$this->backgroundColor( config( 'ui-avatars.background_color' ) );
-		$this->fontColor( config( 'ui-avatars.font_color' ) );
-		$this->bold( (bool) config( 'ui-avatars.font_bold' ) );
-	}
+        $this->length(config('ui-avatars.length'));
+        $this->fontSize(config('ui-avatars.font_size'));
+        $this->imageSize(config('ui-avatars.image_size'));
+        $this->rounded((bool) config('ui-avatars.rounded'));
+        $this->smooth((bool) config('ui-avatars.smooth_rounding'));
+        $this->uppercase((bool) config('ui-avatars.uppercase'));
+        $this->backgroundColor(config('ui-avatars.background_color'));
+        $this->fontColor(config('ui-avatars.font_color'));
+        $this->bold((bool) config('ui-avatars.font_bold'));
+    }
 
-	public function name( $name ) {
-		$this->service->name( $name );
+    public function name($name)
+    {
+        $this->service->name($name);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function length( $length ) {
-		$this->service->length( $length );
+    public function length($length)
+    {
+        $this->service->length($length);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function fontSize( $fontSize ) {
-		$this->service->fontSize( $fontSize );
+    public function fontSize($fontSize)
+    {
+        $this->service->fontSize($fontSize);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function imageSize( $imageSize ) {
-		// Option to specify custom, or default to config.
-		if ( $imageSize === null ) {
-			return $this;
-		}
+    public function imageSize($imageSize)
+    {
+        // Option to specify custom, or default to config.
+        if ($imageSize === null) {
+            return $this;
+        }
 
-		$this->service->size( $imageSize );
+        $this->service->size($imageSize);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function rounded( $rounded ) {
-		$this->service->rounded( $rounded );
+    public function rounded($rounded)
+    {
+        $this->service->rounded($rounded);
 
-		return $this;
-	}
+        return $this;
+    }
 
+    public function smooth($smooth)
+    {
+        $this->service->smooth($smooth);
 
-	public function smooth( $smooth ) {
-		$this->service->smooth( $smooth );
+        return $this;
+    }
 
-		return $this;
-	}
+    public function fontColor($fontColor)
+    {
+        $this->service->color($fontColor);
 
-	public function fontColor( $fontColor ) {
-		$this->service->color( $fontColor );
+        return $this;
+    }
 
-		return $this;
-	}
+    public function backgroundColor($backgroundColor)
+    {
+        $this->service->background($backgroundColor);
 
-	public function backgroundColor( $backgroundColor ) {
-		$this->service->background( $backgroundColor );
+        return $this;
+    }
 
-		return $this;
-	}
+    public function uppercase($uppercase)
+    {
+        $this->service->keepCase(! $uppercase);
 
-	public function uppercase( $uppercase ) {
-		$this->service->keepCase( ! $uppercase );
+        return $this;
+    }
 
-		return $this;
-	}
+    public function bold($bold)
+    {
+        if ($bold) {
+            $this->service->preferBold();
+        }
 
-	public function bold( $bold ) {
-		if ( $bold ) {
-			$this->service->preferBold();
-		}
+        return $this;
+    }
 
-		return $this;
-	}
+    public function base64()
+    {
+        return $this->stream('data-url', 100);
+    }
 
-	public function base64() {
-		return $this->stream( 'data-url', 100 );
-	}
+    public function stream($format = 'png', $quality = 100)
+    {
+        return $this->image()->stream($format, $quality);
+    }
 
-	public function stream( $format = 'png', $quality = 100 ) {
-		return $this->image()->stream( $format, $quality );
-	}
+    public function urlfriendly()
+    {
+        return $this->base64();
+    }
 
-	public function urlfriendly() {
-		return $this->base64();
-	}
+    public function image()
+    {
+        return $this->service->generate();
+    }
 
-	public function image() {
-		return $this->service->generate();
-	}
+    public function svg()
+    {
+        return $this->service->generateSvg()->toXMLString();
+    }
 
-	public function svg() {
-		return $this->service->generateSvg()->toXMLString();
-	}
+    public function initials($length = null)
+    {
+        if ($length !== null) {
+            $this->length($length);
+        }
 
-	public function initials( $length = null ) {
-		if ( $length !== null ) {
-			$this->length( $length );
-		}
-
-		return $this->service->getInitials();
-	}
+        return $this->service->getInitials();
+    }
 }
